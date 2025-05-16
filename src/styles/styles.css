@@ -80,21 +80,21 @@ footer {
     color: white;
     text-align: center;
     font-size: 1.7rem;
-    font-family: "Libre Baskerville", sans-serif;
+    font-family: "Archivo Black", sans-serif;
  }
 
  h2{
     text-align: center;
     font-size: 1.4rem;
     color: #ddd;
-    font-family: "Libre Baskerville", sans-serif;
+    font-family: "Archivo Black", sans-serif;
  }
 
     h3{
         text-align: center;
         font-size: 1.4rem;
         color: #ddd;
-        font-family: "Libre Baskerville", sans-serif;
+        font-family: "Archivo Black", sans-serif;
     }
 /* estilos pro inicio */
 .main-inicio{
