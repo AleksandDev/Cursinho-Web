@@ -80,28 +80,28 @@ footer {
     color: white;
     text-align: center;
     font-size: 1.7rem;
-    font-family: "Archivo Black", sans-serif;
+    font-family: "Archivo", sans-serif;
  }
 
  h2{
     text-align: center;
     font-size: 1.4rem;
     color: #ddd;
-    font-family: "Archivo Black", sans-serif;
+    font-family: "Archivo", sans-serif;
  }
 
     h3{
         text-align: center;
         font-size: 1.4rem;
         color: #ddd;
-        font-family: "Archivo Black", sans-serif;
+        font-family: "Archivo", sans-serif;
     }
 /* estilos pro inicio */
-.main-inicio{
+.inicio{
     display: flex;
     align-items: center;
     gap: 80px;
-    padding: 12% 0% 7% 0%;
+    padding: 7% 0% 7% 0%;
     max-width: 85%;
     margin: 0 auto;
 }
