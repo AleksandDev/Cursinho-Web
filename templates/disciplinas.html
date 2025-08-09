@@ -1,33 +1,24 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+{% extends "base.html" %}
+
+{% block title %}
     <title>Disciplinas Oferecidas</title>
-    <link rel="shortcut icon" href="/static/src/images/livros.png" type="image/x-icon">
-    <link rel="stylesheet" href="/static/styles.css">
-</head>
-<body>
-    <header>
-        <nav>
-            <ul>
-                <a href="/">Início</a> |
-                <a href="/disciplinas">Disciplinas Oferecidas</a> |
-                <a href="/contato">Entre em contato</a>
-            </ul>
-        </nav>
-    </header>
+{% endblock %}
+
+{% block content %}
     <main>
         <section class="disciplinas">
 
         <h1>Disciplinas Oferecidas:</h1>
-        <br>
-        <div class="cursos-container">
-            <section class="curso">
-                <h2>Desenvolvimento Web</h2>
-                <br>
+        <div class="cursos-carrossel">
+    <div class="carrossel-container">
+
+        <button class="carrossel-btn anterior" onclick="moverCarrossel(-1)">&#10094;</button>
+        
+        <div class="carrossel-slides">
+            <section class="carrossel-slide ativo">
                 <div class="curso-conteudo">
-                    <img src="../images/web.png" alt="Desenvolvimento Web" width="350" height="170">
+                    <img src="/static/src/images/web.png" alt="Desenvolvimento Web" width="350" height="170">
+                    <h2>Desenvolvimento Web</h2>
                     <div class="curso-info">
                         <p>Conhecer os conceitos de Desenvolvimento de Sistemas dinâmicos para Internet, aplicando as mais recentes Tecnologias e Métodos para esta área.</p>
                     </div>
@@ -39,15 +30,15 @@
                     <li>Javascript</li>
                     <li>Python e Flask</li>
                 </ul>
-                <br>
-                <button>Inscreva-se</button>
+                <div class="curso-botao">
+                <button><a href="/contato">Inscreva-se</a></button>
+                </div>
             </section>
-        
-            <section class="curso">
-                <h2>Programação Orientada a Objetos</h2>
-                <br>
+
+            <section class="carrossel-slide">
                 <div class="curso-conteudo">
-                    <img src="../images/python.png" alt="Programação Orientada a Objetos" width="350" height="170">
+                    <img src="/static/src/images/python.png" alt="Programação Orientada a Objetos" width="350" height="170">
+                    <h2>Programação Orientada a Objetos</h2>
                     <div class="curso-info">
                         <p>Desenvolver lógica de raciocínio para organizar os elementos necessários para o Desenvolvimento de Programas Orientados a Objetos.</p>
                     </div>
@@ -60,18 +51,58 @@
                     <li>Construção de Classes, Atributos e Métodos</li>
                     <li>Herança e Polimorfismo</li>
                 </ul>
-                <br>
+                <div class="curso-botao">
                 <button>Inscreva-se</button>
+                </div>
             </section>
         </div>
+        
+        <button class="carrossel-btn proximo" onclick="moverCarrossel(1)">&#10095;</button>
+    </div>
+    
+    <div class="carrossel-indicadores">
+        <span class="indicador ativo" onclick="irParaSlide(0)"></span>
+        <span class="indicador" onclick="irParaSlide(1)"></span>
+    </div>
+</div>
         </section>
     </main>
     <br>
-    <footer>
-        <p>Cursinho Web. Todos os direitos reservados.</p>
-        <br>
-        <p>Contato: <a href="email@provedor.com" class="email">email@provedor.com</a></p>
-    </footer>
-    <script src="../scripts/script.js"></script>
-</body>
-</html>
+    <script>
+    let slideAtual = 0;
+    const slides = document.querySelectorAll('.carrossel-slide');
+    const indicadores = document.querySelectorAll('.indicador');
+
+    function mostrarSlide(index) {
+        if (index >= slides.length) {
+            slideAtual = 0;
+        } else if (index < 0) {
+            slideAtual = slides.length - 1;
+        } else {
+            slideAtual = index;
+        }
+
+        slides.forEach(slide => slide.classList.remove('ativo'));
+        indicadores.forEach(indicador => indicador.classList.remove('ativo'));
+
+        slides[slideAtual].classList.add('ativo');
+        indicadores[slideAtual].classList.add('ativo');
+    }
+
+    function moverCarrossel(direcao) {
+        mostrarSlide(slideAtual + direcao);
+    }
+
+    function irParaSlide(index) {
+        mostrarSlide(index);
+    }
+
+    mostrarSlide(slideAtual);
+    </script>
+    <script>
+    function toggleMenu() {
+    const menu = document.querySelector('.menu');
+    menu.classList.toggle('show');
+}
+    </script>
+{% endblock %}

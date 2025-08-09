@@ -3,26 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cursinho Web</title>
-    <link rel="shortcut icon" href="../src/images/livros.png" type="image/x-icon">
+    {% block title %} {% endblock %}
+    <link rel="shortcut icon" href="/static/src/images/livros.png" type="image/x-icon">
     <link rel="stylesheet" href="/static/styles.css">
 </head>
 <body>
-    <header>
-        <nav>
+    <header class="navbar">
+        <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+        <nav class="menu" >
             <ul>
-                <a href="/">Início</a> |
-                <a href="/disciplinas">Disciplinas Oferecidas</a> |
+                <a href="/">Início</a> 
+                <a href="/disciplinas">Disciplinas Oferecidas</a>
                 <a href="/contato">Entre em contato</a>
             </ul>
         </nav>
     </header>
-    <main></main>
+    {% block content %} {% endblock %}
     <footer>
         <p>Cursinho Web. Todos os direitos reservados.</p>
         <br>
         <p>Contato: <a href="email@provedor.com" class="email">email@provedor.com</a></p>
     </footer>
-    <script src="./src/scripts/script.js"></script>
+     <script>
+    function toggleMenu() {
+    const menu = document.querySelector('.menu');
+    menu.classList.toggle('show');
+}
+    </script>
+        {% block scripts %} {% endblock %}
 </body>
 </html>

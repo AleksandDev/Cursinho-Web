@@ -14,19 +14,6 @@
     height: 100vh;
 }
 
-header {
-    display: inline;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 40px;
-    padding: 10px 20px;
-    background: #111;
-    color: green;
-    border-bottom: #333 solid 1px;
-}
-
 nav {
     display: flex;
     justify-content: center;
@@ -56,14 +43,20 @@ footer {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    bottom: 0;
-    left: 0;
     width: auto;
     height: 40px;
     padding: 10px 20px;
     background: #111;
     color: green;
     box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
+}
+
+@media (max-width: 600px) {
+    footer {
+        flex-direction: column;
+        align-items: center;
+        padding: 10px;
+    }
 }
 
 .email{
@@ -86,14 +79,14 @@ footer {
  h2{
     text-align: center;
     font-size: 1.4rem;
-    color: #ddd;
+    color: #006400;
     font-family: "Archivo", sans-serif;
  }
 
     h3{
         text-align: center;
         font-size: 1.4rem;
-        color: #ddd;
+        color: #006400;
         font-family: "Archivo", sans-serif;
     }
 /* estilos pro inicio */
@@ -103,7 +96,14 @@ footer {
     gap: 80px;
     padding: 7% 0% 7% 0%;
     max-width: 85%;
+    height: 22vw;
     margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+    .inicio{
+        height: 60vw;
+    }
 }
 
 .bt-inicio{
@@ -135,12 +135,26 @@ color: #ddd;
 max-width: 700px;
 }
 
-@media (max-width: 768px) {
-    .main-inicio {
-        flex-direction: column;
+@media screen and (max-width: 1000px) {
+    .inicio {
+        flex-direction: row;
         align-items: center;
-        padding: 17% 0% 5% 0%;
-        gap: 25px;
+        height: auto;
+        gap: 30px;
+        padding: 1% 0% 1% 0%;
+        height: 66vw;
+    }
+    
+    .img-inicio {
+        width: 100%;
+        max-width: 600px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .div-inicio {
+        align-items: center;
+        padding: 10px;
     }
 
     .img-inicio {
@@ -148,10 +162,43 @@ max-width: 700px;
         max-width: 400px;
     }
 
+    .inicio {
+        flex-direction: column;
+        height: auto;
+        gap: 30px;
+        padding: 1% 0% 1% 0%;
+    }
+
     .div-inicio, .div-inicio h1, .p-inicio, .bt-inicio{
         text-align: center;
         justify-content: center;
     }
+}
+
+@media screen and (max-width: 468px) {
+
+    .inicio {
+        flex-direction: column;
+        height: auto;
+        gap: 30px;
+        padding: 1% 0% 1% 0%;
+    }
+
+    .bt-inicio {
+        width: 180px;
+        font-size: 14px;
+    }
+
+    .div-inicio, .div-inicio h1, .p-inicio, .bt-inicio{
+        text-align: center;
+        justify-content: center;
+    }
+
+    footer {
+        flex-direction: column;
+        align-items: center;
+    }
+    
 }
 
  /* estilos para pagina de cursos */
@@ -163,23 +210,6 @@ max-width: 700px;
     max-width: 95%;
     margin: 0 auto;
  }
-
- .cursos-container {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
-    max-width: 80%;
-    margin: 0 auto;
-}
-
-.curso {
-    border: 1px solid #333;
-    padding: 20px;
-    border-radius: 10px;
-    display: flex;
-    flex-direction: column;
-    height: 95%;
-}
 
 .curso-conteudo {
     display: flex;
@@ -193,34 +223,26 @@ max-width: 700px;
 .curso-conteudo img {
     border: 1px solid green;
     border-radius: 4px;
-    object-fit: cover;
-}
-
-.curso-info {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    flex: 1;
 }
 
 .curso-info p {
     color: white;
-    line-height: 1.5;
-    margin-bottom: 15px;
+    width: 70%;
+    justify-self: center;
 }
 
 .habilidades-lista {
     color: white;
-    padding-left: 20px;
-    list-style-type: none;
+    list-style: none;
     display: grid;
-    grid-template-columns: 1fr;
-    gap: 5px;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+    padding: auto 20px 20px 20px;
+    transform: translateX(80px);
 }
 
 .habilidades-lista li {
-    padding: 5px 0;
-    position: relative;
+    padding: 10px 0px 15px;
 }
 
 .habilidades-lista li::before {
@@ -229,7 +251,29 @@ max-width: 700px;
     font-weight: bold;
     display: inline-block;
     width: 1em;
-    margin-left: -1em;
+}
+
+@media screen and (max-width: 660px) {
+    .curso-conteudo {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .curso-conteudo img {
+        width: 100%;
+        max-width: 400px;
+    }
+
+    .curso-info p {
+        width: 90%;
+        text-align: center;
+    }
+
+    .habilidades-lista {
+        grid-template-columns: 1fr;
+        transform: translateX(90px);
+    }
+    
 }
 
 button {
@@ -238,7 +282,6 @@ button {
     border: none;
     width: 140px;
     height: 45px;
-    padding: 8px 16px;
     border-radius: 4px;
     cursor: pointer;
     font-weight: bold;
@@ -249,18 +292,17 @@ button:hover {
     background-color: #006400;
 }
 
+.curso-botao{
+    display: flex;
+    justify-content: center;
+}
+
 .img-inicio{
     border-radius: 8px;
     object-fit: cover;
 }
 
 @media (max-width: 768px) {
-   
-    .cursos-container {
-        grid-template-columns: 1fr;
-        gap: 10px;
-    }
-
     .curso {
         padding: 10px;
     }
@@ -303,7 +345,7 @@ form {
     }
 
     .contato {
-        max-width: 100%;
+        max-width: 90%;
         padding: 10px;
     }
 
@@ -355,4 +397,140 @@ input[type="radio"] {
     display: flex;
     justify-content: center;
     gap: 30px;
+}
+
+/* estilo para navbar responsiva */
+.navbar{
+    display: flex;
+    position: fixed;
+    justify-content: center;
+    width: 100%;
+    height: 6vh;
+    padding: 10px;
+    background: #111;
+    color: green;
+    border-bottom: #333 solid 1px;
+}
+
+.menu a {
+    gap: 80px;
+    padding: 0 50px;
+}
+
+.menu-toggle{
+    display: none;
+    position: absolute;
+    background: transparent;
+    left: 5px;
+    width: 50px;
+    border-radius: 50%;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+.menu {
+    position: absolute;
+    top: 65px;
+    left: 0;
+    width: 30%;
+    background: #111;
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 0.4s ease-out;
+  }
+
+    .menu ul {
+        flex-direction: column;
+        align-items: center;
+        padding: 10px 0;
+    }
+
+    .menu a {
+        padding: 10px 0;
+        width: 100%;
+        text-align: center;
+    }
+
+    .menu.show {
+    display: flex;
+    max-height: 500px;
+  }
+
+    .menu-toggle {
+    display: block;
+  }
+}
+
+/* carrosel para pagina cursos */
+.cursos-carrossel {
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+}
+
+.carrossel-container {
+    display: flex;
+    align-items: center;
+}
+
+.carrossel-slides {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    width: 100%;
+}
+
+.carrossel-slide {
+    min-width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+    display: none;
+    transition: opacity 0.5s ease;
+}
+
+.carrossel-slide.ativo {
+    display: block;
+}
+
+.carrossel-btn {
+    position: absolute;
+    width: 50px;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0,0,0,0.5);
+    color: white;
+    border-radius: 50%;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 10;
+    font-size: 18px;
+}
+
+.anterior {
+    left: 10px;
+}
+
+.proximo {
+    right: 10px;
+}
+
+.carrossel-indicadores {
+    text-align: center;
+    padding: 10px 0;
+}
+
+.indicador {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    margin: 0 5px;
+    background-color: #bbb;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.indicador.ativo {
+    background-color: #333;
 }

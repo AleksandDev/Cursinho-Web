@@ -1,23 +1,10 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+{% extends "base.html" %}
+
+{% block title %}
     <title>Cursinho Web - Contato</title>
-    <link rel="shortcut icon" href="../images/livros.png" type="image/x-icon">
-    <link rel="stylesheet" href="/static/styles.css">
-    <script src="../scripts/script.js"></script>
-</head>
-<body>
-    <header>
-        <nav>
-            <ul>
-                <a href="/">Início</a> |
-                <a href="/disciplinas">Disciplinas Oferecidas</a> |
-                <a href="/contato">Entre em contato</a>
-            </ul>
-        </nav>
-    </header>
+{% endblock %}
+
+    {% block content %}
     <main>
 
         <section class="contato">
@@ -80,10 +67,32 @@
         </form>
         </section>
     </main>
-    <footer>
-        <p>Cursinho Web. Todos os direitos reservados.</p>
-        <br>
-        <p>Contato: <a href="email@provedor.com" class="email">email@provedor.com</a></p>
-    </footer>
-</body>
-</html>
+    {% endblock %}
+
+    {% block scripts %}
+    <script>
+    const inputName = document.querySelector("input#nome");
+    const inputEmail = document.querySelector("input#email");
+    const botao = document.querySelector("button#submit");
+    const linguagens = document.querySelectorAll("input#[checkbox-linguagens]");
+    const conheceu = document.querySelector("input#[radio-conheceu]");
+
+    function validarCampos() {
+
+    const nomeValido = inputName.value.trim() !== "";
+    const emailValido = inputEmail.value.trim() !== "";
+
+        if (!nomeValido && !emailValido) {
+            alert("O nome e o email não podem ser vazios!");
+        } else if (!nomeValido) {
+            alert("O nome não pode ser vazio!");
+        } else if (!emailValido) {
+            alert("O email não pode ser vazio!");
+        } else {
+            alert("Todos os campos foram preenchidos com sucesso!");
+        }1                                                                                                                                          
+}
+
+    botao.addEventListener("click", validarCampos);
+    </script>
+{% endblock %}
