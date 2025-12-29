@@ -1,0 +1,295 @@
+ @import '/static/styles.css';
+
+.banner-disciplinas{
+    width: 95%;
+    height: 500px;
+    background-image: url('/static/src/images/background-cursinho-web.png');
+    background-size: cover;
+    padding: 20px 0;
+    text-align: center;
+    margin-bottom: 30px;
+    border-radius: 8px;
+    justify-content: right;
+}
+
+.banner-h1{
+    text-align: center;
+    margin-top: 20px;
+    font-size: 2.5rem;
+    font-weight: bold;
+    letter-spacing: 2px;
+    text-shadow: white 4px 1px 0px;
+}
+
+.banner-disciplinas-content{
+    display: block;
+    max-width: 500px;
+    margin: 0 auto;
+    padding-top: 150px;
+    justify-content: right;
+}
+
+.banner-disciplinas-content p{
+    color: white;
+    font-size: 1.1rem;
+    margin-top: 15px;
+    letter-spacing: 2px;
+    margin: 0 auto;
+    font-size: 30px;
+    font-family: 'Raleway', sans-serif
+}
+
+ .disciplinas{
+    align-items: center;
+    padding-top: 1%;
+    max-width: 80%;
+    margin: 0 auto;
+ }
+
+.curso-conteudo {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 5px;
+}
+
+.curso-conteudo img {
+    border: 1px solid green;
+    border-radius: 4px;
+}
+
+.curso-info p {
+    color: white;
+    width: 70%;
+    justify-self: center;
+}
+
+.habilidades-lista {
+    color: white;
+    list-style: none;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+    padding: auto 20px 20px 20px;
+    transform: translateX(80px);
+}
+
+.habilidades-lista li {
+    padding: 10px 0px 15px;
+}
+
+.habilidades-lista li::before {
+    content: "•";
+    color: green;
+    font-weight: bold;
+    display: inline-block;
+    width: 1em;
+}
+
+.habilidades {
+    color: white;
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+    cursor: pointer;
+    overflow: hidden;
+    display: none;
+}
+
+.habilidades.show {
+    display: block;
+}
+
+.habilidades-lista.show {
+    display: grid;
+ }
+
+@media screen and (max-width: 660px) {
+    .curso-conteudo {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .curso-conteudo img {
+        width: 100%;
+        max-width: 400px;
+    }
+
+    .curso-info p {
+        width: 90%;
+        text-align: center;
+    }
+
+    .habilidades-lista {
+        grid-template-columns: 1fr;
+        transform: translateX(90px);
+    }
+    
+}
+
+button {
+    background: linear-gradient(to right, #006400, #02a502);
+    color: white;
+    border: none;
+    width: 140px;
+    height: 45px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #006400;
+}
+
+.curso-botao{
+    display: flex;
+    justify-content: center;
+}
+
+.img-inicio{
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+@media (max-width: 768px) {
+    .curso {
+        padding: 10px;
+    }
+
+    .curso-conteudo img {
+        width: 100%;
+        max-width: 300px;
+    }
+}
+
+/* Estilos para o carrossel de disciplinas */
+.cursos-carrossel {
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+}
+
+.carrossel-container {
+    display: flex;
+    align-items: center;
+}
+
+.carrossel-slides {
+    display: flex;
+    width: 100%;
+}
+
+.carrossel-slide {
+    width: 50%;
+    padding: 20px;
+    box-sizing: border-box;
+    display: none;
+    transition: opacity 0.5s ease;
+    border: 1px solid #333;
+    border-radius: 20px;
+    background-color: #111;
+    margin: 5% auto;
+}
+
+.carrossel-slide.ativo {
+    display: block;
+}
+
+.carrossel-btn {
+    position: absolute;
+    width: 50px;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0,0,0,0.5);
+    color: white;
+    border-radius: 50%;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 10;
+    font-size: 18px;
+}
+
+.anterior {
+    left: 10px;
+}
+
+.proximo {
+    right: 10px;
+}
+
+.carrossel-indicadores {
+    text-align: center;
+    padding: 10px 0;
+}
+
+.indicador {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    margin: 0 5px;
+    background-color: #bbb;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.indicador.ativo {
+    background-color: #333;
+}
+
+.avaliacoes-section {
+    max-width: 70%;
+    margin: 0 auto;
+    padding: 20px;
+    overflow: hidden;
+}
+
+.avaliacoes {
+    display: flex;
+    gap: 20px;
+    animation: mover 10s linear infinite;
+}
+
+@keyframes mover {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+.avaliacao {
+    background-color: #111;
+    border: 1px solid #333;
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 15px;
+    width: 400px;
+    margin: 25px auto;
+    text-align: center;
+    justify-items: center;
+}
+
+.avaliacao p {
+    color: white;
+    margin-bottom: 10px;
+    font-weight: 400px;
+    letter-spacing: 1px;
+}
+
+.avaliacao {
+    font-weight: bold;
+    color: #02a502;
+}
+
+.photo_user img{
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    margin-bottom: 10px;
+}

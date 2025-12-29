@@ -1,0 +1,88 @@
+@import '/static/styles.css';
+@import '/static/disciplinas.css';
+
+/* estilos para pagina contato */
+
+.contato{
+    max-width: 62%;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #333;
+    border-radius: 8px;
+    padding: 1% 0% 0% 0%;
+}
+
+.formulario{
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+    border: 1px solid green;
+}
+
+form {
+    align-items: center;
+    justify-items: center;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+@media (max-width: 768px) {
+    main {
+        padding: 12% 1% 1% 1%;
+    }
+
+    .contato {
+        max-width: 90%;
+        padding: 10px;
+    }
+
+    .formulario, fieldset {
+        width: 100%;
+    }
+}
+
+label {
+    color: white;
+}
+
+.varch{
+    color: white;
+    font-size: 1.1rem;
+}
+
+.choose{
+    color: white;
+    font-size: 18px;
+}
+
+legend{
+    font-size: 18px;
+}
+
+select{
+    font-weight: bold;
+}
+
+option {
+    font-weight: bold;
+}
+  
+fieldset {
+    border: 1px solid green;
+    margin: 15px 0;
+    padding: 10px;
+    width: 92%;
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+    accent-color: green;
+    margin-right: 5px;
+}
+
+.botoes {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}

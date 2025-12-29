@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block title %}
+    <title>Informações do Curso</title>
+{% endblock %}
+
+{% block styles %}
+    <link rel="stylesheet" href="/static/styles/curso.css">
+{% endblock %}
+
+{% block content %}
+    <main>
+        <section class="info-curso">
+            <h1>Informações do Curso</h1>
+            <div class="info-curso-conteudo">
+                <h2>{{ curso.nome }}</h2>
+                <p>{{ curso.descricao }}</p>
+                <h3>Habilidades Desenvolvidas:</h3>
+                <ul class="habilidades-lista">
+                    {% for habilidade in curso.habilidades %}
+                        <li>{{ habilidade }}</li>
+                    {% endfor %}
+                </ul>
+                <h4>Duração do Curso: {{ curso.duracao }}</h4>
+                <div>
+                <img src="{{ curso.imagem_url }}" alt="Imagem do Curso" class="img-curso" width="400" height="200"> 
+                </div>
+            </div>
+                <div class="curso-botao">
+                    <button><a href="/contato">Inscreva-se</a></button>
+                </div>
+        </section>
+    </main>
+{% endblock %}

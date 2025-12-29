@@ -4,6 +4,10 @@
     <title>Cursinho Web - Contato</title>
 {% endblock %}
 
+{% block styles %}
+    <link rel="stylesheet" href="/static/contato.css">
+{% endblock %}
+
     {% block content %}
     <main>
 
@@ -11,7 +15,7 @@
 
         <h1>Dados para Contato:</h1>
 
-        <form method="POST">
+        <form method="POST" action="/contato" onsubmit="switchMethod()">
             <div class="formulario">
             <label for="nome" class="varch">Nome Completo:</label><br>
             <input type="text" id="nome" name="nome" required size="100"><br>
@@ -92,7 +96,11 @@
             alert("Todos os campos foram preenchidos com sucesso!");
         }1                                                                                                                                          
 }
-
     botao.addEventListener("click", validarCampos);
+
+    function switchMethod() {
+        const form = document.querySelector("form");
+        form.method = "GET";
+    }
     </script>
 {% endblock %}

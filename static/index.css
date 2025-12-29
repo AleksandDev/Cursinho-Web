@@ -1,0 +1,119 @@
+@import '/static/styles.css';
+
+/* estilos pro inicio */
+.inicio{
+    display: flex;
+    align-items: center;
+    gap: 80px;
+    padding: 7% 0% 7% 0%;
+    max-width: 85%;
+    height: 22vw;
+    margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+    .inicio{
+        height: 60vw;
+    }
+}
+
+.bt-inicio{
+    background: linear-gradient(to right,#02a502, #006400, #02a502);
+    color: white;
+    border: none;
+    width: 250px;
+    height: 45px;
+    padding: 8px 16px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.curso-botao{
+    display: flex;
+    justify-content: center;
+}
+
+.div-inicio h1{
+    font-family: "Libre Baskerville", sans-serif;
+    color: white;
+    text-align: center;
+    font-size: 1.7rem;
+    text-align: left;
+}
+
+.p-inicio{
+    font-size: 1.1rem;
+    text-align: left;
+    line-height: 1.6;
+    margin-bottom: 15px;
+    color: #ddd;
+    max-width: 700px;
+}
+
+@media screen and (max-width: 1000px) {
+    .inicio {
+        flex-direction: row;
+        align-items: center;
+        height: auto;
+        gap: 30px;
+        padding: 1% 0% 1% 0%;
+        height: 66vw;
+    }
+    
+    .img-inicio {
+        width: 100%;
+        max-width: 600px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .div-inicio {
+        align-items: center;
+        padding: 10px;
+    }
+
+    .img-inicio {
+        width: 100%;
+        max-width: 400px;
+    }
+
+    .inicio {
+        flex-direction: column;
+        height: auto;
+        gap: 30px;
+        padding: 1% 0% 1% 0%;
+    }
+
+    .div-inicio, .div-inicio h1, .p-inicio, .bt-inicio{
+        text-align: center;
+        justify-content: center;
+    }
+}
+
+@media screen and (max-width: 468px) {
+
+    .inicio {
+        flex-direction: column;
+        height: auto;
+        gap: 30px;
+        padding: 1% 0% 1% 0%;
+    }
+
+    .bt-inicio {
+        width: 180px;
+        font-size: 14px;
+    }
+
+    .div-inicio, .div-inicio h1, .p-inicio, .bt-inicio{
+        text-align: center;
+        justify-content: center;
+    }
+
+    footer {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+}

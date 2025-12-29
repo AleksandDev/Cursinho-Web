@@ -1,70 +1,107 @@
 {% extends "base.html" %}
 
 {% block title %}
-    <title>Disciplinas Oferecidas</title>
+    <title>Cursos Disponíveis</title>
+{% endblock %}
+
+{% block styles %}
+    <link rel="stylesheet" href="/static/disciplinas.css">
 {% endblock %}
 
 {% block content %}
     <main>
+
+        <section class="banner-disciplinas">
+        <div class="banner-disciplinas-content">
+            <h1 class="banner-h1">Estude com o Cursinho Web!</h1>
+            <p>Explore nossos cursos e aprimore suas habilidades em programação no Cursinho Web.</p>
+        </div>
+        </section>
+
         <section class="disciplinas">
-
-        <h1>Disciplinas Oferecidas:</h1>
-        <div class="cursos-carrossel">
-    <div class="carrossel-container">
-
-        <button class="carrossel-btn anterior" onclick="moverCarrossel(-1)">&#10094;</button>
-        
-        <div class="carrossel-slides">
-            <section class="carrossel-slide ativo">
-                <div class="curso-conteudo">
-                    <img src="/static/src/images/web.png" alt="Desenvolvimento Web" width="350" height="170">
-                    <h2>Desenvolvimento Web</h2>
-                    <div class="curso-info">
-                        <p>Conhecer os conceitos de Desenvolvimento de Sistemas dinâmicos para Internet, aplicando as mais recentes Tecnologias e Métodos para esta área.</p>
+            <h1>Cursos disponíveis:</h1>
+                <section class="carrossel-slide ativo">
+                    <div class="curso-conteudo">
+                        <img src="/static/src/images/web.png" alt="Desenvolvimento Web" width="350" height="170">
+                        <h2>Desenvolvimento Web</h2>
+                        <div class="curso-info">
+                            <p>Conhecer os conceitos de Desenvolvimento de Sistemas dinâmicos para Internet, aplicando as mais recentes Tecnologias e Métodos para esta área.</p>
+                        </div>
                     </div>
-                </div>
-                <h3>Habilidades:</h3>
-                <ul class="habilidades-lista">
-                    <li>HTML</li>
-                    <li>CSS</li>
-                    <li>Javascript</li>
-                    <li>Python e Flask</li>
-                </ul>
-                <div class="curso-botao">
-                <button><a href="/contato">Inscreva-se</a></button>
+                    </div>
+                    <div class="curso-botao">
+                    <button><a href="/curso/desenvolvimento-web">Saiba mais</a></button>
+                    </div>
+                </section>
+
+                <section class="carrossel-slide">
+                    <div class="curso-conteudo">
+                        <img src="/static/src/images/python.png" alt="Programação Orientada a Objetos" width="350" height="170">
+                        <h2>Programação Orientada a Objetos</h2>
+                        <div class="curso-info">
+                            <p>Desenvolver lógica de raciocínio para organizar os elementos necessários para o Desenvolvimento de Programas Orientados a Objetos.</p>
+                        </div>
+                    </div>
+                    <div class="curso-botao">
+                    <button><a href="/curso/programacao-orientada-a-objetos">Saiba mais</a></button>
                 </div>
             </section>
 
             <section class="carrossel-slide">
                 <div class="curso-conteudo">
-                    <img src="/static/src/images/python.png" alt="Programação Orientada a Objetos" width="350" height="170">
-                    <h2>Programação Orientada a Objetos</h2>
+                    <img src="/static/src/images/data-science.png" alt="Data Science" width="350" height="170">
+                    <h2>Data Science</h2>
                     <div class="curso-info">
-                        <p>Desenvolver lógica de raciocínio para organizar os elementos necessários para o Desenvolvimento de Programas Orientados a Objetos.</p>
+                        <p>Aprender a extrair conhecimento e insights de dados estruturados e não estruturados, utilizando técnicas estatísticas, de machine learning e visualização de dados.</p>
                     </div>
                 </div>
-                <h3>Habilidades:</h3>
-                <ul class="habilidades-lista">
-                    <li>Dicionários</li>
-                    <li>Tratamento de Exceções</li>
-                    <li>Testes Unitários</li>
-                    <li>Construção de Classes, Atributos e Métodos</li>
-                    <li>Herança e Polimorfismo</li>
-                </ul>
                 <div class="curso-botao">
-                <button>Inscreva-se</button>
-                </div>
-            </section>
+                <button><a href="/curso/data-science">Saiba mais</a></button>
+        </section>
+        
+        </section>
+
+        <div class="carrossel-controles">
+            <button class="anterior" onclick="moverCarrossel(-1)">&#10094;</button>
+            <button class="proximo" onclick="moverCarrossel(1)">&#10095;</button>
         </div>
         
-        <button class="carrossel-btn proximo" onclick="moverCarrossel(1)">&#10095;</button>
-    </div>
-    
-    <div class="carrossel-indicadores">
-        <span class="indicador ativo" onclick="irParaSlide(0)"></span>
-        <span class="indicador" onclick="irParaSlide(1)"></span>
-    </div>
-</div>
+        <div class="carrossel-indicadores">
+            <span class="indicador ativo" onclick="irParaSlide(0)"></span>
+            <span class="indicador" onclick="irParaSlide(1)"></span>
+        </div>
+
+        <section class="avaliacoes-section">
+            <h2>Avaliações</h2>
+            <div class="avaliacoes">
+                <div class="avaliacao">
+                    <p>"O curso de Desenvolvimento Web foi incrível! Aprendi muito sobre HTML, CSS e JavaScript. Os instrutores foram muito atenciosos e o conteúdo era bem estruturado."</p>
+                    <div class="photo_user">
+                        <img src="https://i.pinimg.com/736x/3b/9d/26/3b9d266568d3086182589343885c522d.jpg" alt="photo_user">
+                    </div>
+                    <span>- Ana S.</span>
+                </div>
+                <div class="avaliacao">
+                    <p>"A disciplina de Programação Orientada a Objetos me ajudou a entender conceitos complexos de forma simples. Agora me sinto mais confiante para desenvolver meus próprios projetos."</p>
+                    <div class="photo_user">
+                        <img src="https://i.pinimg.com/736x/3b/9d/26/3b9d266568d3086182589343885c522d.jpg" alt="photo_user">
+                    </div>
+                    <span>- Carlos M.</span>
+                </div>
+                <div class="avaliacao">
+                    <p>"Recomendo o Cursinho Web para quem quer se aprofundar em programação. As aulas são dinâmicas e práticas, o que facilita muito o aprendizado."</p>
+                    <div class="photo_user">
+                        <img src="https://i.pinimg.com/736x/3b/9d/26/3b9d266568d3086182589343885c522d.jpg" alt="photo_user">
+                    </div>
+                    <span>- Beatriz L.</span>
+                </div>
+                <div class="avaliacao">
+                    <p>"O curso de Data Science foi excelente! Aprendi a analisar dados e criar visualizações poderosas. O conteúdo é bem atualizado e os instrutores são muito competentes."</p>
+                    <div class="photo_user">
+                        <img src="https://i.pinimg.com/736x/3b/9d/26/3b9d266568d3086182589343885c522d.jpg" alt="photo_user">
+                    </div>
+                    <span>- Lucas R.</span>
+                </div>
         </section>
     </main>
     <br>
@@ -99,6 +136,7 @@
 
     mostrarSlide(slideAtual);
     </script>
+
     <script>
     function toggleMenu() {
     const menu = document.querySelector('.menu');

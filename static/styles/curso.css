@@ -1,0 +1,83 @@
+.info-curso {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  padding: 40px;
+  max-width: 1100px;
+  margin: 0 auto;
+  align-items: center;
+}
+
+.info-curso h4 {
+  font-weight: bold;
+}
+
+.info-curso h1 {
+  width: 100%;
+  font-size: 2.2rem;
+  margin-bottom: 20px;
+}
+
+.info-curso-conteudo {
+  flex: 1;
+  min-width: 300px;
+}
+
+.info-curso-conteudo h2 {
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+}
+
+.info-curso-conteudo p {
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.habilidades-lista {
+  margin: 10px 0 20px 20px;
+}
+
+.habilidades-lista li {
+  margin-bottom: 6px;
+  list-style: disc;
+}
+
+.curso-botao {
+  display: flex;
+  justify-content: center;
+}
+
+.info-curso button {
+  background: linear-gradient(to right, #02a502, #458a45, #02a502);
+  color: white;
+  border: none;
+  width: 250px;
+  height: 45px;
+  padding: 8px 16px;
+  border-radius: 25px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.info-curso button:hover {
+  filter: brightness(1.1);
+  transform: scale(1.03);
+  transition: 0.3s;
+}
+
+.info-curso button a {
+  color: white;
+  text-decoration: none;
+}
+
+.img-curso {
+  border-radius: 12px;
+  object-fit: cover;
+  max-width: 100%;
+}
+
+.info-curso {
+  animation: fadeSlide 0.8s ease forwards;
+}
