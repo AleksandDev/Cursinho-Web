@@ -1,4 +1,4 @@
-@import '/static/styles.css';
+@import '/static/styles/styles.css';
 
 body {
     background-image: url(/static/src/images/background-cursinho-web.png);
@@ -77,4 +77,19 @@ button {
 .form-group button {
     display: block;
     margin: auto;
+}
+
+form p {
+    color: red;
+    text-align: center;
+}
+
+form span a {
+    color: #ccc;
+    font-size: 14px;
+}
+
+form span a:hover {
+    color: #02a502;
+    text-decoration: underline;
 }

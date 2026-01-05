@@ -1,5 +1,7 @@
 from flask import Flask, render_template, request, session, redirect, url_for
-from classes.curso import Curso
+from models.curso import Curso
+from models.user import User
+from models.bd import SessionLocal, create_tables, hash_password
 import sqlite3
 import logging
 import os 
@@ -7,18 +9,28 @@ import os
 app = Flask(__name__)
 app.secret_key = 'sua_chave_secreta_aqui'
 
-db_path = os.path.join(os.path.dirname(__file__), 'database.db')
-logging.basicConfig(level=logging.DEBUG)
+# Create tables if not exist
+create_tables()
 
-db_connection = sqlite3.connect(db_path)
-db_cursor = db_connection.cursor()
+db = SessionLocal()
+try:
+    if not db.query(User).filter(User.username == 'admin').first():
+        default_user = User(username='admin', password=hash_password('mudar123'), email='admin@example.com')
+        db.add(default_user)
+        db.commit()
+finally:
+    db.close()
 
 @app.route('/')
 def home():
+    if not session.get('logged_in'):
+        return redirect(url_for('login'))
     return render_template('index.html')
 
 @app.route('/disciplinas')
 def disciplinas():
+    if not session.get('logged_in'):
+        return redirect(url_for('login'))
     return render_template('disciplinas.html')
 
 @app.route('/curso/<curso_nome>')
@@ -66,18 +78,24 @@ def login():
     if request.method == 'POST':
         username = request.form.get('username')
         password = request.form.get('password')
-        if username == 'admin' and password == 'mudar123':
-            session['logged_in'] = True
-            return redirect(url_for('home'))
-        else:
-            message = 'Credenciais inválidas. Tente novamente.'
-            return render_template('login.html', message=message)
+        db = SessionLocal()
+        try:
+            user = db.query(User).filter(User.username == username).first()
+            if user and user.check_password(password):
+                session['logged_in'] = True
+                session['username'] = username
+                return redirect(url_for('home'))
+            else:
+                message = 'Credenciais inválidas. Tente novamente.'
+                return render_template('login.html', message=message)
+        finally:
+            db.close()
     return render_template('login.html')
 
 @app.route('/logout')
 def logout():
     session.clear()
-    return redirect(url_for('home'))
+    return redirect(url_for('login'))
 
 if __name__ == '__main__':
     app.run(debug=True)

@@ -4,19 +4,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {% block title %} {% endblock %}
-    <link rel="shortcut icon" href="/static/src/images/livros.png" type="image/x-icon">
-    <link rel="stylesheet" href="/static/styles.css">
+    <link rel="shortcut icon" href="/static/src/images/LogoCursinhoWeb.png" type="image/x-icon">
+    <link rel="stylesheet" href="/static/styles/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     {% block styles %} {% endblock %}
 </head>
 <body>
     <header class="navbar">
         <button class="menu-toggle" onclick="toggleMenu()">☰</button>
-        <nav class="menu" >
-            <img src="/static/src/images/Logo do Cursinho Web em verde.png" class="logo" alt="Logo Cursinho Web">
+        <img src="/static/src/images/Logo do Cursinho Web em verde.png" class="logo" alt="Logo Cursinho Web">
+        <nav class="menu">
             <div>
                 <a href="/">Início</a> 
                 <a href="/disciplinas">Cursos Disponíveis</a>
-                <a href="/contato">Entre em contato</a>
+                <a href="/contato">Entre em Contato</a>
+            </div>
+            <div class="sessao">
+                <div class="user" onclick="toggleUser()">
+                <i class="fa-solid fa-circle-user fa-2x"></i>
+                <span>{{ session.get('username') }}</span>
+                </div>
+                <div class="logout">
+                <button>
+                    <a href="/logout"><i class="fa-solid fa-arrow-right-to-bracket"></i> 
+                        Sair</a>
+                </button>
+                </div>
             </div>
         </nav>
     </header>
@@ -31,6 +44,12 @@
     const menu = document.querySelector('.menu');
     menu.classList.toggle('show');
 }
+
+    function toggleUser() {
+    const logout = document.querySelector('.logout');
+    logout.classList.toggle('show');
+}
+
     </script>
         {% block scripts %} {% endblock %}
 </body>

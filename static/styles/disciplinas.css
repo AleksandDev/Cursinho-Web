@@ -1,42 +1,69 @@
- @import '/static/styles.css';
+ @import '/static/styles/styles.css';
 
-.banner-disciplinas{
-    width: 95%;
-    height: 500px;
-    background-image: url('/static/src/images/background-cursinho-web.png');
-    background-size: cover;
-    padding: 20px 0;
-    text-align: center;
-    margin-bottom: 30px;
-    border-radius: 8px;
-    justify-content: right;
+.banner-disciplinas {
+  position: relative;
+  width: 96%;
+  min-height: 320px;
+  background-image: url("/static/src/images/background-cursinho-web.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  margin: 0 auto 30px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+  margin-bottom: 40px;
+  margin-top: 30px;
 }
 
-.banner-h1{
-    text-align: center;
-    margin-top: 20px;
-    font-size: 2.5rem;
-    font-weight: bold;
-    letter-spacing: 2px;
-    text-shadow: white 4px 1px 0px;
+.banner-disciplinas::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to right,
+    rgba(0, 52, 3, 0.628),
+    rgba(0, 16, 8, 0.6)
+  );
+  z-index: 1;
 }
 
-.banner-disciplinas-content{
-    display: block;
-    max-width: 500px;
-    margin: 0 auto;
-    padding-top: 150px;
-    justify-content: right;
+.banner-disciplinas-content {
+  position: relative;
+  z-index: 2;
+  max-width: 900px;
+  text-align: center;
+  color: #ffffff;
 }
 
-.banner-disciplinas-content p{
-    color: white;
-    font-size: 1.1rem;
-    margin-top: 15px;
-    letter-spacing: 2px;
-    margin: 0 auto;
-    font-size: 30px;
-    font-family: 'Raleway', sans-serif
+.banner-h1 {
+  font-size: 2.8rem;
+  font-weight: bold;
+  margin-bottom: 15px;
+  letter-spacing: 1px;
+}
+
+.banner-disciplinas-content p {
+  font-size: 1.5rem;
+  line-height: 1.6;
+  opacity: 0.95;
+  margin: 0 auto;
+  letter-spacing: 1px;
+}
+
+.banner-disciplinas-content {
+  animation: bannerFade 0.9s ease forwards;
+}
+
+@keyframes bannerFade {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
  .disciplinas{
