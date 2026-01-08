@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="/static/styles/cadastro.css">
+    <link rel="shortcut icon" href="/static/src/images/LogoCursinhoWeb.png" type="image/x-icon">
+</head>
+<body>
+    <main>
+        <section class="login-section">
+            <h1>
+                {% if cadastro %}
+                    Cadastro
+                {% else %}
+                    Recuperar Senha
+                {% endif %}
+            </h1>
+        <form method="POST" action="{% if cadastro %}/cadastro{% else %}/recuperar_senha{% endif %}">
+
+            {% if cadastro %}
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            {% endif %}
+
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+
+            {% if cadastro %}
+            <div class="form-group">
+                <label for="password">Senha</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            {% else %}
+            <div class="form-group">
+                <label for="new_password">Nova Senha</label>
+                <input type="password" id="new_password" name="new_password" required>
+            </div>
+            {% endif %}
+
+            <div class="form-group">
+                <button type="submit">
+                    {% if cadastro %}
+                        Cadastrar
+                    {% else %}
+                        Recuperar Senha
+                    {% endif %}
+                </button>
+            </div>
+
+            <span>
+                {% if cadastro %}
+                    <a href="/login">Já tem conta? Faça login</a>
+                {% else %}
+                    <a href="/cadastro">Não tem conta? Cadastre-se</a>
+                {% endif %}
+            </span>
+
+            </form>
+        </section>
+    </main>
+</body>
+</html>

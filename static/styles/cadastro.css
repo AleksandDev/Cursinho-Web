@@ -1,0 +1,96 @@
+@import '/static/styles/styles.css';
+
+body {
+    background-image: url(/static/src/images/background-cursinho-web.png);
+    background-size: cover;
+    justify-items: center;
+    justify-content: center;
+ }
+
+ h1{
+    color: white;
+    text-align: center;
+    font-size: 1.7rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+ }
+
+.login-section {
+    width: 70%;
+    height: 40%;
+    padding: 40px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    border-radius: 10px;
+    background-color: #000000;
+    margin: 50px;
+}
+
+.login-section label {
+    display: block;
+    margin-bottom: 10px;
+    color: #ccc;
+}
+
+.login-section input[type="text"],
+.login-section input[type="password"],
+.login-section input[type="email"] {
+    width: 95%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #444;
+    border-radius: 5px;
+    background-color: #333;
+    color: #fff;
+}
+
+.login-section input[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #5cb85c;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.login-section input[type="submit"]:hover {
+    background-color: #4cae4c;
+}
+
+.form-group {
+    margin-bottom: 10px;
+}
+
+button {
+    background: linear-gradient(to right, #02a502, #458a45, #02a502);;
+    color: white;
+    border: none;
+    width: 250px;
+    height: 45px;
+    padding: 8px 16px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.form-group button {
+    display: block;
+    margin: auto;
+}
+
+form p {
+    color: red;
+    text-align: center;
+}
+
+form span a {
+    color: #ccc;
+    font-size: 14px;
+}
+
+form span a:hover {
+    color: #02a502;
+    text-decoration: underline;
+}

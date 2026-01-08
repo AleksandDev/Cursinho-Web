@@ -12,7 +12,7 @@ if __name__ != '__main__':
     from .curso import Curso
 
 DATABASE_URL = 'sqlite:///database.db'
-engine = create_engine(DATABASE_URL, echo=True)  # echo=True for debugging
+engine = create_engine(DATABASE_URL, echo=True)
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 
 def get_db():

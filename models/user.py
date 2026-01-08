@@ -23,7 +23,6 @@ class User(Base):
         return f"User(username={self.username}, email={self.email})"
 
     def check_password(self, password):
-        # Assuming password is hashed, use hashlib to check
         import hashlib
         return self.password == hashlib.sha256(password.encode()).hexdigest()
 
