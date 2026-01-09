@@ -8,12 +8,31 @@
     padding: 7% 0% 7% 0%;
     max-width: 85%;
     height: 22vw;
-    margin: 0 auto;
+    margin: 3% auto auto auto;
 }
+
+main{
+    padding: 5% 0% 2% 2%;
+ }
 
 @media (max-width: 768px) {
     .inicio{
         height: 60vw;
+    }
+}
+
+@media (max-width: 1300px) {
+    main{
+        margin: 0% 5% 2% 2%;
+    }
+    .inicio{
+        max-width: 95%;
+        gap: 50px;
+        padding: 8% 0% 2% 0%;
+        height: 20vw;
+    }
+    footer{
+        width: 95%;
     }
 }
 
@@ -30,9 +49,12 @@
     font-size: 16px;
 }
 
-.curso-botao{
-    display: flex;
-    justify-content: center;
+
+@media (min-width: 1368px) {
+    .curso-botao{
+        display: flex;
+        justify-content: center;
+    }
 }
 
 .div-inicio h1{
@@ -98,7 +120,7 @@
         flex-direction: column;
         height: auto;
         gap: 30px;
-        padding: 1% 0% 1% 0%;
+        padding: 21% 0% 1% 0%;
     }
 
     .bt-inicio {
@@ -114,6 +136,7 @@
     footer {
         flex-direction: column;
         align-items: center;
+        height: auto;
     }
     
 }

@@ -16,13 +16,13 @@
         <nav class="menu">
             <div>
                 <a href="/">Início</a> 
-                <a href="/disciplinas">Cursos Disponíveis</a>
-                <a href="/contato">Entre em Contato</a>
+                <a href="/disciplinas">Cursos</a>
+                <a href="/contato">Contato</a>
             </div>
             <div class="sessao">
                 <div class="user" onclick="toggleUser()">
                 <i class="fa-solid fa-circle-user fa-2x"></i>
-                <span>{{ session.get('username') }}</span>
+                <span><p>{{ session.get('username') }}</p></span>
                 </div>
                 <div class="logout">
                 <button>
@@ -36,7 +36,6 @@
     {% block content %} {% endblock %}
     <footer>
         <p>Cursinho Web. Todos os direitos reservados.</p>
-        <br>
         <p>Contato: <a href="email@provedor.com" class="email">email@provedor.com</a></p>
     </footer>
      <script>
