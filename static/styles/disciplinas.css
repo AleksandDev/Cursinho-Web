@@ -68,7 +68,6 @@
 
  .disciplinas{
     align-items: center;
-    padding-top: 1%;
     max-width: 80%;
     margin: 0 auto;
  }
@@ -93,44 +92,19 @@
     justify-self: center;
 }
 
-.habilidades-lista {
-    color: white;
-    list-style: none;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 10px;
-    padding: auto 20px 20px 20px;
-    transform: translateX(80px);
+@media (max-width: 1360px) {
+    .banner-disciplinas {
+        min-height: 250px;
+        padding: 30px 15px;
+        margin-top: 4%;
+    }
+    footer{
+        width: 96%;
+    }
+    .avaliacao p{
+        width: 90%;
+    }
 }
-
-.habilidades-lista li {
-    padding: 10px 0px 15px;
-}
-
-.habilidades-lista li::before {
-    content: "•";
-    color: green;
-    font-weight: bold;
-    display: inline-block;
-    width: 1em;
-}
-
-.habilidades {
-    color: white;
-    font-size: 1.3rem;
-    margin-bottom: 10px;
-    cursor: pointer;
-    overflow: hidden;
-    display: none;
-}
-
-.habilidades.show {
-    display: block;
-}
-
-.habilidades-lista.show {
-    display: grid;
- }
 
 @media screen and (max-width: 660px) {
     .curso-conteudo {
@@ -153,6 +127,15 @@
         transform: translateX(90px);
     }
     
+}
+
+@media screen and (max-width: 468px) {
+    .banner-disciplinas {
+        flex-direction: column;
+        height: auto;
+        gap: 30px;
+        margin: 21% 0% 1% 0%;
+    }
 }
 
 button {
@@ -219,7 +202,7 @@ button:hover {
     border: 1px solid #333;
     border-radius: 20px;
     background-color: #111;
-    margin: 5% auto;
+    margin: 2% auto;
 }
 
 .carrossel-slide.ativo {

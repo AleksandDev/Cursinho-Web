@@ -12,6 +12,10 @@
     padding: 1% 0% 0% 0%;
 }
 
+main h1{
+    margin: 30px;
+}
+
 .formulario{
     width: 90%;
     display: flex;

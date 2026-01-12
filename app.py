@@ -4,6 +4,9 @@ from models.user import User
 from models.bd import SessionLocal, create_tables, hash_password
 import logging
 import os 
+import sys
+import email.utils
+import smtplib
 
 app = Flask(__name__)
 app.secret_key = 'sua_chave_secreta_aqui'
@@ -67,10 +70,25 @@ def enviar_contato():
     nome = request.form.get('nome')
     email = request.form.get('email')
     curso = request.form.get('disciplina')
+    mensagem = 'Todos os campos são obrigatórios.'
     if not nome or not email or not curso:
-        return render_template('contato.html', erro=True)
+        return render_template('contato.html', sucesso=False, mensagem=mensagem)
     else: return render_template('contato.html', sucesso=True, nome=nome)
-    
+
+def enviar_email(destinatario, assunto, corpo):
+    remetente = 'admin@example.com'
+    servidor = smtplib.SMTP('smtp.gmail.com', 587)
+    servidor.starttls()
+    servidor.login('admin@example.com', 'sua_senha')
+    html = """<html>
+    <body>
+        <h2>Olá, {}! Recebemos seu formulário com as seguintes informações:</h2>
+        <p>{}</p>
+    </body>
+    </html>""".format(assunto, corpo)
+    servidor.sendmail(remetente, destinatario, html)
+    servidor.quit()
+
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     if request.method == 'POST':
