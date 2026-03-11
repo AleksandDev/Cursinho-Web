@@ -12,7 +12,8 @@ O Cursinho Web é uma plataforma educacional que permite aos usuários se cadast
 - **Sistema de Cursos**: Visualização de cursos disponíveis com descrições e habilidades
 - **Página de Disciplinas**: Lista de disciplinas oferecidas
 - **Formulário de Contato**: Permite aos usuários enviar mensagens
-- **Interface Responsiva**: Design moderno com CSS personalizado
+- **Envio de Email**: Envia as informações de contato por email
+- **Interface Responsiva**: Media Query personalizada para telas de celular, notebooks e monitores(telas maiores).
 - **Banco de Dados**: Persistência de dados usando SQLite e SQLAlchemy
 
 ## 🛠️ Tecnologias Utilizadas

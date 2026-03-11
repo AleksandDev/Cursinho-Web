@@ -46,6 +46,12 @@ form {
     }
 }
 
+@media (max-width: 1300px) {
+    h1{
+        padding-top: 3%;
+    }
+}
+
 label {
     color: white;
 }
@@ -83,6 +89,15 @@ input[type="checkbox"],
 input[type="radio"] {
     accent-color: green;
     margin-right: 5px;
+}
+
+.mensagem{
+    width: 93%;
+    height: 100px;
+    margin: 15px 0;
+    padding: 10px;
+    border: 1px solid green;
+    border-radius: 4px;
 }
 
 .botoes {

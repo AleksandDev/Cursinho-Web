@@ -3,9 +3,7 @@ from models.bd import Base, Curso
 from models.user import User
 from models.bd import SessionLocal, create_tables, hash_password
 import logging
-import os 
-import sys
-import email.utils
+from email.mime.text import MIMEText
 import smtplib
 
 app = Flask(__name__)
@@ -56,16 +54,43 @@ def info_curso(curso_nome):
         return render_template('curso.html', curso=curso)
     else:
         return render_template('404.html'), 404
-    
-@app.route('/contato')
-def contato():
-    return render_template('contato.html')
 
 @app.errorhandler(404)
 def pagina_nao_encontrada(e):
     return render_template('404.html'), 404
 
-@app.route('/contato', methods=['GET', 'POST'])
+def enviar_email(destinatario, assunto, curso):
+    remetente = 'youremail@gmail.com'
+    senha = 'inserir_senha_app'
+    nome_destinatario = request.form.get('nome')
+    informacoes = {'interesse': request.form.get('disciplina'),
+        'linguagens': request.form.get('linguagens'),
+        'conheceu': request.form.get('conheceu')}
+    mensagem = request.form.get('mensagem')
+    html = f"""
+    <html>
+    <body>
+        <h1>Olá {nome_destinatario}! Obrigado por entrar em contato!</h1>
+        <p>Recebemos sua mensagem e responderemos o mais breve possível.</p>
+        <p>Detalhes: {informacoes}</p>
+        <p>Mensagem: {mensagem}</p>
+        <p>Atenciosamente,</p>
+        <p>Cursinho Web</p>
+    </body>
+    </html>
+    """
+    msg = MIMEText(html, 'html')
+    msg['Subject'] = assunto
+    msg['From'] = remetente
+    msg['To'] = destinatario
+    servidor = smtplib.SMTP('smtp.gmail.com', 587)
+    servidor.starttls()
+    servidor.login(remetente, senha)
+
+    servidor.sendmail(remetente, destinatario, msg.as_string())
+    servidor.quit()
+
+@app.route('/contato', methods=['POST', 'GET'])
 def enviar_contato():
     nome = request.form.get('nome')
     email = request.form.get('email')
@@ -73,21 +98,16 @@ def enviar_contato():
     mensagem = 'Todos os campos são obrigatórios.'
     if not nome or not email or not curso:
         return render_template('contato.html', sucesso=False, mensagem=mensagem)
-    else: return render_template('contato.html', sucesso=True, nome=nome)
 
-def enviar_email(destinatario, assunto, corpo):
-    remetente = 'admin@example.com'
-    servidor = smtplib.SMTP('smtp.gmail.com', 587)
-    servidor.starttls()
-    servidor.login('admin@example.com', 'sua_senha')
-    html = """<html>
-    <body>
-        <h2>Olá, {}! Recebemos seu formulário com as seguintes informações:</h2>
-        <p>{}</p>
-    </body>
-    </html>""".format(assunto, corpo)
-    servidor.sendmail(remetente, destinatario, html)
-    servidor.quit()
+    enviar_email(email, 'Contato Recebido - Cursinho Web', curso)
+
+    return render_template(
+        'contato.html',
+        sucesso=True,
+        nome=nome,
+        email=email,
+        curso=curso
+    )
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():

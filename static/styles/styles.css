@@ -150,6 +150,7 @@ footer {
     margin-right: 40px;
     display: flex;
     flex-direction: column;
+    cursor: pointer;
 }
 
 .user {
