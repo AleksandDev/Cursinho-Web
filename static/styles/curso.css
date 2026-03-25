@@ -1,83 +1,215 @@
+/* Animação principal */
+@keyframes fadeSlide {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Container principal */
 .info-curso {
   display: flex;
   flex-wrap: wrap;
-  gap: 40px;
-  padding: 40px;
-  max-width: 1100px;
+  gap: 50px;
+  padding: 60px 40px;
+  max-width: 1200px;
   margin: 0 auto;
-  align-items: center;
+  align-items: stretch;
+  animation: fadeSlide 0.8s ease forwards;
 }
 
-.info-curso h4 {
-  font-weight: bold;
-}
-
+/* Título principal */
 .info-curso h1 {
   width: 100%;
-  font-size: 2.2rem;
-  margin-bottom: 20px;
+  font-size: 2.8rem;
+  margin-bottom: 40px;
+  background: linear-gradient(135deg, #02a502 0%, #458a45 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 700;
+  letter-spacing: -0.5px;
 }
 
+/* Conteúdo info */
 .info-curso-conteudo {
   flex: 1;
   min-width: 300px;
+  padding: 30px;
+  background: linear-gradient(135deg, rgba(2, 165, 2, 0.05) 0%, rgba(69, 138, 69, 0.05) 100%);
+  border-radius: 16px;
+  border-left: 5px solid #02a502;
+  box-shadow: 0 8px 32px rgba(2, 165, 2, 0.1);
+  animation: slideInRight 0.9s ease forwards;
 }
 
 .info-curso-conteudo h2 {
-  font-size: 1.8rem;
-  margin-bottom: 10px;
+  font-size: 2rem;
+  margin-bottom: 15px;
+  color: #02a502;
+  font-weight: 700;
+}
+
+.info-curso-conteudo h3 {
+  font-size: 1.3rem;
+  margin-bottom: 15px;
+  margin-top: 25px;
+  color: #333;
+  font-weight: 600;
+}
+
+.info-curso-conteudo h4 {
+  font-size: 1.1rem;
+  margin-top: 30px;
+  margin-bottom: 15px;
+  color: #555;
+  font-weight: 600;
 }
 
 .info-curso-conteudo p {
-  font-size: 1rem;
-  line-height: 1.6;
-  margin-bottom: 20px;
+  font-size: 1.05rem;
+  line-height: 1.8;
+  margin-bottom: 15px;
+  color: #555;
 }
 
+/* Lista de habilidades com ícones */
 .habilidades-lista {
-  margin: 10px 0 20px 20px;
+  margin: 20px 0 30px 0;
+  list-style: none;
+  padding: 0;
 }
 
 .habilidades-lista li {
-  margin-bottom: 6px;
-  list-style: disc;
+  margin-bottom: 12px;
+  padding-left: 28px;
+  position: relative;
+  font-size: 1rem;
+  color: #333;
+  line-height: 1.6;
 }
 
+.habilidades-lista li:before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: #02a502;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+/* Container imagem */
+.info-curso > div:has(.img-curso) {
+  flex: 1;
+  min-width: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: slideInRight 1s ease forwards;
+}
+
+/* Imagem do curso */
+.img-curso {
+  border-radius: 16px;
+  object-fit: cover;
+  max-width: 100%;
+  height: auto;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.img-curso:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 30px 70px rgba(2, 165, 2, 0.25);
+}
+
+/* Container botão */
 .curso-botao {
   display: flex;
   justify-content: center;
+  width: 100%;
+  margin-top: 20px;
 }
 
+/* Botão de inscrição */
 .info-curso button {
-  background: linear-gradient(to right, #02a502, #458a45, #02a502);
+  background: linear-gradient(135deg, #02a502 0%, #458a45 100%);
   color: white;
   border: none;
-  width: 250px;
-  height: 45px;
-  padding: 8px 16px;
-  border-radius: 25px;
+  padding: 14px 40px;
+  border-radius: 50px;
   cursor: pointer;
-  font-weight: bold;
-  font-size: 16px;
+  font-weight: 700;
+  font-size: 1.1rem;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 10px 30px rgba(2, 165, 2, 0.3);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  min-width: 250px;
 }
 
 .info-curso button:hover {
-  filter: brightness(1.1);
-  transform: scale(1.03);
-  transition: 0.3s;
+  transform: translateY(-3px);
+  box-shadow: 0 15px 45px rgba(2, 165, 2, 0.4);
+  background: linear-gradient(135deg, #458a45 0%, #02a502 100%);
+}
+
+.info-curso button:active {
+  transform: translateY(-1px);
+  box-shadow: 0 5px 20px rgba(2, 165, 2, 0.3);
 }
 
 .info-curso button a {
   color: white;
   text-decoration: none;
+  display: block;
 }
 
-.img-curso {
-  border-radius: 12px;
-  object-fit: cover;
-  max-width: 100%;
-}
+/* Responsividade */
+@media (max-width: 768px) {
+  .info-curso {
+    flex-direction: column;
+    gap: 30px;
+    padding: 40px 20px;
+  }
 
-.info-curso {
-  animation: fadeSlide 0.8s ease forwards;
+  .info-curso h1 {
+    font-size: 2.2rem;
+    margin-bottom: 30px;
+  }
+
+  .info-curso-conteudo {
+    padding: 25px;
+    border-left-width: 4px;
+  }
+
+  .info-curso-conteudo h2 {
+    font-size: 1.6rem;
+  }
+
+  .info-curso button {
+    width: 100%;
+    padding: 12px 30px;
+    font-size: 1rem;
+  }
+
+  .img-curso {
+    max-width: 100%;
+    width: 100%;
+  }
 }

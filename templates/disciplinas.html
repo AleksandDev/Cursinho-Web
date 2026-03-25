@@ -19,6 +19,12 @@
 
         <section class="disciplinas">
             <h1>Cursos disponíveis:</h1>
+            
+            <div class="carrossel-container">
+                <div class="carrossel-controles">
+                    <button class="anterior" onclick="moverCarrossel(-1)">&#10094;</button>
+                </div>
+                
                 <section class="carrossel-slide ativo">
                     <div class="curso-conteudo">
                         <img src="/static/src/images/web.png" alt="Desenvolvimento Web" width="350" height="170">
@@ -27,9 +33,8 @@
                             <p>Conhecer os conceitos de Desenvolvimento de Sistemas dinâmicos para Internet, aplicando as mais recentes Tecnologias e Métodos para esta área.</p>
                         </div>
                     </div>
-                    </div>
                     <div class="curso-botao">
-                    <button><a href="/curso/desenvolvimento-web">Saiba mais</a></button>
+                        <button><a href="/curso/desenvolvimento-web">Saiba mais</a></button>
                     </div>
                 </section>
 
@@ -42,65 +47,81 @@
                         </div>
                     </div>
                     <div class="curso-botao">
-                    <button><a href="/curso/programacao-orientada-a-objetos">Saiba mais</a></button>
-                </div>
-            </section>
-
-            <section class="carrossel-slide">
-                <div class="curso-conteudo">
-                    <img src="/static/src/images/data-science.png" alt="Data Science" width="350" height="170">
-                    <h2>Data Science</h2>
-                    <div class="curso-info">
-                        <p>Aprender a extrair conhecimento e insights de dados estruturados e não estruturados, utilizando técnicas estatísticas, de machine learning e visualização de dados.</p>
+                        <button><a href="/curso/programacao-orientada-a-objetos">Saiba mais</a></button>
                     </div>
-                </div>
-                <div class="curso-botao">
-                <button><a href="/curso/data-science">Saiba mais</a></button>
-        </section>
-        
-        </section>
+                </section>
 
-        <div class="carrossel-controles">
-            <button class="anterior" onclick="moverCarrossel(-1)">&#10094;</button>
-            <button class="proximo" onclick="moverCarrossel(1)">&#10095;</button>
-        </div>
-        
-        <div class="carrossel-indicadores">
-            <span class="indicador ativo" onclick="irParaSlide(0)"></span>
-            <span class="indicador" onclick="irParaSlide(1)"></span>
-        </div>
+                <section class="carrossel-slide">
+                    <div class="curso-conteudo">
+                        <img src="/static/src/images/data-science-1.webp" alt="Data Science" width="350" height="170">
+                        <h2>Data Science</h2>
+                        <div class="curso-info">
+                            <p>Aprender a extrair conhecimento e insights de dados estruturados e não estruturados, utilizando técnicas estatísticas, de machine learning e visualização de dados.</p>
+                        </div>
+                    </div>
+                    <div class="curso-botao">
+                        <button><a href="/curso/data-science">Saiba mais</a></button>
+                    </div>
+                </section>
+
+                <div class="carrossel-controles">
+                    <button class="proximo" onclick="moverCarrossel(1)">&#10095;</button>
+                </div>
+            </div>
+            
+            <div class="carrossel-indicadores">
+                <span class="indicador ativo" onclick="irParaSlide(0)"></span>
+                <span class="indicador" onclick="irParaSlide(1)"></span>
+                <span class="indicador" onclick="irParaSlide(2)"></span>
+            </div>
+        </section>
 
         <section class="avaliacoes-section">
             <h2>Avaliações</h2>
             <div class="avaliacoes">
                 <div class="avaliacao">
-                    <p>"O curso de Desenvolvimento Web foi incrível! Aprendi muito sobre HTML, CSS e JavaScript. Os instrutores foram muito atenciosos e o conteúdo era bem estruturado."</p>
+                    <p>"Este curso é como atravessar um sonho onde tudo se conecta — interfaces, códigos e ideias fluem como se sempre tivessem pertencido umas às outras.
+
+Cada página criada é uma porta, cada linha de código, um reflexo da sua imaginação ganhando forma.
+
+No fim, você percebe… não está apenas construindo sites, mas moldando realidades."</p>
                     <div class="photo_user">
-                        <img src="https://i.pinimg.com/736x/3b/9d/26/3b9d266568d3086182589343885c522d.jpg" alt="photo_user">
+                        <img src="https://i.pinimg.com/736x/bd/b5/b1/bdb5b190fa7dc79ca61f4a818b71b7ba.jpg" alt="photo_user">
                     </div>
-                    <span>- Ana S.</span>
+                    <span>- Paprika </span>
                 </div>
                 <div class="avaliacao">
-                    <p>"A disciplina de Programação Orientada a Objetos me ajudou a entender conceitos complexos de forma simples. Agora me sinto mais confiante para desenvolver meus próprios projetos."</p>
+                    <p>"Um curso de POO que não me fez perder a fé na humanidade.
+                        Explica encapsulamento, herança e polimorfismo sem parecer um ritual obscuro criado por programadores dos anos 90. Tudo faz sentido — o que é suspeito, mas aceitável.
+                        Se depois disso você ainda não entende objetos… talvez você seja o objeto. E não do tipo útil."
+                    </p>
                     <div class="photo_user">
-                        <img src="https://i.pinimg.com/736x/3b/9d/26/3b9d266568d3086182589343885c522d.jpg" alt="photo_user">
+                        <img src="https://i.pinimg.com/1200x/c8/db/31/c8db31fabf005dbb901adf11cca6dc2c.jpg" alt="photo_user">
                     </div>
-                    <span>- Carlos M.</span>
+                    <span>- Reagan Ridley </span>
                 </div>
                 <div class="avaliacao">
-                    <p>"Recomendo o Cursinho Web para quem quer se aprofundar em programação. As aulas são dinâmicas e práticas, o que facilita muito o aprendizado."</p>
+                    <p>"Os dados… eles falam comigo.
+                        No início, eram apenas números caóticos — mas este curso revelou seus padrões ocultos, suas intenções… suas verdades. Machine Learning, estatísticas… tudo parte de um grande experimento.
+                        Você acha que está apenas analisando informações… mas, na verdade, está interferindo no fluxo dos eventos.
+                        Cuidado..."
+                    </p>
                     <div class="photo_user">
-                        <img src="https://i.pinimg.com/736x/3b/9d/26/3b9d266568d3086182589343885c522d.jpg" alt="photo_user">
+                        <img src="https://i.pinimg.com/1200x/32/c3/52/32c352953bc9134bfb5051b21ec53b45.jpg" alt="photo_user">
                     </div>
-                    <span>- Beatriz L.</span>
+                    <span>- Rintarou Okabe </span>
                 </div>
                 <div class="avaliacao">
-                    <p>"O curso de Data Science foi excelente! Aprendi a analisar dados e criar visualizações poderosas. O conteúdo é bem atualizado e os instrutores são muito competentes."</p>
+                    <p>"Essa plataforma me ensinou lógica… o que é ótimo, porque minha vida claramente não tem nenhuma.
+                        Agora eu consigo entender condições, loops e decisões — pena que isso não funciona fora do código.
+                        Enfim, ela tem bons cursos. Só não espere que eles resolvam seus problemas. Eu tentei."
+                    </p>
                     <div class="photo_user">
-                        <img src="https://i.pinimg.com/736x/3b/9d/26/3b9d266568d3086182589343885c522d.jpg" alt="photo_user">
+                        <img src="https://i.pinimg.com/736x/66/17/30/661730290da1bf9e6a573195ddc7dfa8.jpg" alt="photo_user">
                     </div>
-                    <span>- Lucas R.</span>
+                    <span>- Bojack Horseman </span>
                 </div>
+            </div>
         </section>
     </main>
     <br>

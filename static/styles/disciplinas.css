@@ -1,5 +1,29 @@
  @import '/static/styles/styles.css';
 
+/* Animações gerais */
+@keyframes bannerFade {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes cardSlide {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Banner principal */
 .banner-disciplinas {
   position: relative;
   width: 96%;
@@ -13,6 +37,7 @@
   justify-content: center;
   padding: 40px 20px;
   margin-bottom: 40px;
+  border-radius: 12px;
   margin-top: 30px;
 }
 
@@ -34,220 +59,446 @@
   max-width: 900px;
   text-align: center;
   color: #ffffff;
-}
-
-.banner-h1 {
-  font-size: 2.8rem;
-  font-weight: bold;
-  margin-bottom: 15px;
-  letter-spacing: 1px;
-}
-
-.banner-disciplinas-content p {
-  font-size: 1.5rem;
-  line-height: 1.6;
-  opacity: 0.95;
-  margin: 0 auto;
-  letter-spacing: 1px;
-}
-
-.banner-disciplinas-content {
   animation: bannerFade 0.9s ease forwards;
 }
 
-@keyframes bannerFade {
-  from {
-    opacity: 0;
-    transform: translateY(25px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+.banner-h1 {
+  font-size: 3.2rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  letter-spacing: -0.5px;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+  animation: bannerFade 0.9s ease 0.2s backwards;
 }
 
- .disciplinas{
-    align-items: center;
-    max-width: 80%;
-    margin: 0 auto;
- }
-
-.curso-conteudo {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 15px;
-    margin-bottom: 5px;
+.banner-disciplinas-content p {
+  font-size: 1.3rem;
+  line-height: 1.8;
+  opacity: 0.98;
+  margin: 0 auto;
+  letter-spacing: 0.5px;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
 }
 
-.curso-conteudo img {
-    border: 1px solid green;
-    border-radius: 4px;
+/* Seção disciplinas com carrossel */
+.disciplinas {
+  align-items: center;
+  max-width: 90%;
+  margin: 0 auto 60px;
+  padding: 40px 20px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
 }
 
-.curso-info p {
-    color: white;
-    width: 70%;
-    justify-self: center;
+.disciplinas > h1 {
+  font-size: 2.5rem;
+  margin-bottom: 50px;
+  text-align: center;
+  background: linear-gradient(135deg, #02a502 0%, #458a45 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 700;
+  width: 100%;
 }
 
-@media (max-width: 1360px) {
-    .banner-disciplinas {
-        min-height: 250px;
-        padding: 30px 15px;
-        margin-top: 4%;
-    }
-    footer{
-        width: 96%;
-    }
-    .avaliacao p{
-        width: 90%;
-    }
-}
-
-@media screen and (max-width: 660px) {
-    .curso-conteudo {
-        flex-direction: column;
-        gap: 20px;
-    }
-
-    .curso-conteudo img {
-        width: 100%;
-        max-width: 400px;
-    }
-
-    .curso-info p {
-        width: 90%;
-        text-align: center;
-    }
-
-    .habilidades-lista {
-        grid-template-columns: 1fr;
-        transform: translateX(90px);
-    }
-    
-}
-
-@media screen and (max-width: 468px) {
-    .banner-disciplinas {
-        flex-direction: column;
-        height: auto;
-        gap: 30px;
-        margin: 21% 0% 1% 0%;
-    }
-}
-
-button {
-    background: linear-gradient(to right, #006400, #02a502);
-    color: white;
-    border: none;
-    width: 140px;
-    height: 45px;
-    border-radius: 25px;
-    cursor: pointer;
-    font-weight: bold;
-    font-size: 16px;
-}
-
-button:hover {
-    background-color: #006400;
-}
-
-.curso-botao{
-    display: flex;
-    justify-content: center;
-}
-
-.img-inicio{
-    border-radius: 8px;
-    object-fit: cover;
-}
-
-@media (max-width: 768px) {
-    .curso {
-        padding: 10px;
-    }
-
-    .curso-conteudo img {
-        width: 100%;
-        max-width: 300px;
-    }
-}
-
-/* Estilos para o carrossel de disciplinas */
-.cursos-carrossel {
-    max-width: 800px;
-    margin: 0 auto;
-    position: relative;
-    overflow: hidden;
-}
-
+/* Container do carrossel com botões */
 .carrossel-container {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  width: 100%;
+  max-width: 60%;
+  margin: 0 auto 30px;
+  position: relative;
 }
 
-.carrossel-slides {
-    display: flex;
-    width: 100%;
-}
-
+/* Carrossel */
 .carrossel-slide {
-    width: 50%;
-    padding: 20px;
-    box-sizing: border-box;
-    display: none;
-    transition: opacity 0.5s ease;
-    border: 1px solid #333;
-    border-radius: 20px;
-    background-color: #111;
-    margin: 2% auto;
+  width: 100%;
+  max-width: 600px;
+  padding: 40px 30px;
+  box-sizing: border-box;
+  display: none;
+  transition: opacity 0.5s ease;
+  border-radius: 16px;
+  background: linear-gradient(135deg, rgba(2, 165, 2, 0.08) 0%, rgba(69, 138, 69, 0.08) 100%);
+  border: 2px solid #02a502;
+  margin: 0 auto;
+  box-shadow: 0 10px 40px rgba(2, 165, 2, 0.12);
+  opacity: 0.3;
+  animation: cardSlide 0.6s ease forwards;
+  flex: 0 1 600px;
 }
 
 .carrossel-slide.ativo {
-    display: block;
+  display: block;
+  opacity: 1;
+  border: 2px solid #02a502;
+  box-shadow: 0 20px 60px rgba(2, 165, 2, 0.2);
 }
 
-.carrossel-btn {
-    position: absolute;
-    width: 50px;
-    top: 50%;
-    transform: translateY(-50%);
-    background-color: rgba(0,0,0,0.5);
-    color: white;
-    border-radius: 50%;
-    padding: 10px;
-    cursor: pointer;
-    z-index: 10;
-    font-size: 18px;
+/* Container dos controles (botões) */
+.carrossel-controles {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  flex-shrink: 0;
 }
 
-.anterior {
-    left: 10px;
+.carrossel-controles:first-of-type {
+  order: -1;
 }
 
-.proximo {
-    right: 10px;
+.carrossel-controles:last-of-type {
+  order: 1;
 }
 
+/* Botões do carrossel */
+.carrossel-controles button {
+  width: 50px;
+  height: 50px;
+  padding: 0 !important;
+  background: linear-gradient(135deg, #02a502, #458a45) !important;
+  color: white;
+  border: none !important;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 10;
+  font-size: 24px;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 20px rgba(2, 165, 2, 0.3);
+  text-transform: none;
+  letter-spacing: 0;
+  flex-shrink: 0;
+}
+
+.carrossel-controles button:hover {
+  transform: scale(1.1);
+  box-shadow: 0 12px 30px rgba(2, 165, 2, 0.5);
+  background: linear-gradient(135deg, #458a45, #02a502) !important;
+}
+
+.carrossel-controles button:active {
+  transform: scale(0.95);
+}
+
+.carrossel-controles button a {
+  color: white !important;
+  text-decoration: none;
+  display: none;
+}
+
+/* Card de curso */
+.curso-conteudo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 25px;
+}
+
+.curso-conteudo img {
+  border-radius: 12px;
+  object-fit: cover;
+  max-width: 100%;
+  box-shadow: 0 15px 45px rgba(2, 165, 2, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.curso-conteudo img:hover {
+  transform: translateY(-8px) scale(1.03);
+  box-shadow: 0 25px 60px rgba(2, 165, 2, 0.35);
+}
+
+.curso-conteudo h2 {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #02a502;
+  text-align: center;
+  margin: 10px 0;
+}
+
+.curso-info {
+  width: 100%;
+  text-align: center;
+}
+
+.curso-info p {
+  color: #555;
+  font-size: 1rem;
+  line-height: 1.8;
+  max-width: 80%;
+  margin: 0 auto;
+}
+
+/* Container botão dentro do slide */
+.curso-botao {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin: 10px 0 20px;
+}
+
+/* Botão dentro do slide */
+.curso-botao button {
+  background: linear-gradient(135deg, #02a502 0%, #458a45 100%);
+  color: white;
+  border: none;
+  padding: 12px 35px;
+  border-radius: 50px;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 1rem;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 8px 25px rgba(2, 165, 2, 0.25);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.curso-botao button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 40px rgba(2, 165, 2, 0.4);
+  background: linear-gradient(135deg, #458a45 0%, #02a502 100%);
+}
+
+.curso-botao button:active {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(2, 165, 2, 0.3);
+}
+
+.curso-botao button a {
+  color: white;
+  text-decoration: none;
+}
+
+/* Indicadores do carrossel */
 .carrossel-indicadores {
-    text-align: center;
-    padding: 10px 0;
+  text-align: center;
+  padding: 30px 0;
 }
 
 .indicador {
-    display: inline-block;
-    width: 12px;
-    height: 12px;
-    margin: 0 5px;
-    background-color: #bbb;
-    border-radius: 50%;
-    cursor: pointer;
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  margin: 0 8px;
+  background-color: #ddd;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.indicador:hover {
+  background-color: #bbb;
+  transform: scale(1.2);
 }
 
 .indicador.ativo {
-    background-color: #333;
+  background: linear-gradient(135deg, #02a502, #458a45);
+  transform: scale(1.3);
+  box-shadow: 0 4px 12px rgba(2, 165, 2, 0.4);
+}
+
+.img-inicio {
+  border-radius: 12px;
+  object-fit: cover;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+/** Responsividade tablet **/
+@media screen and (max-width: 768px) {
+  .carrossel-container {
+    gap: 10px;
+  }
+
+  .carrossel-slide {
+    padding: 25px 20px;
+  }
+
+  .carrossel-controles button {
+    width: 45px;
+    height: 45px;
+    font-size: 20px;
+  }
+
+  .disciplinas {
+    max-width: 95%;
+  }
+
+  .disciplinas > h1 {
+    font-size: 2rem;
+    margin-bottom: 30px;
+  }
+
+  .curso-conteudo img {
+    max-width: 400px;
+  }
+
+  .curso-info p {
+    width: 95%;
+  }
+}
+
+/** Responsividade mobile grande **/
+@media screen and (max-width: 660px) {
+  .carrossel-container {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+  }
+
+  .carrossel-controles {
+    width: 100%;
+    justify-content: center;
+    gap: 30px;
+  }
+
+  .carrossel-controles:first-of-type {
+    order: -1;
+  }
+
+  .carrossel-controles:last-of-type {
+    order: 1;
+  }
+
+  .carrossel-slide {
+    order: 0;
+    flex-basis: 100%;
+    padding: 20px 15px;
+  }
+
+  .carrossel-controles button {
+    width: 50px;
+    height: 50px;
+    font-size: 20px;
+  }
+
+  .banner-disciplinas {
+    flex-direction: column;
+    height: auto;
+    gap: 20px;
+    margin: 15% 0 5%;
+    min-height: auto;
+    padding: 30px 20px;
+  }
+
+  .banner-h1 {
+    font-size: 2rem;
+    margin-bottom: 15px;
+  }
+
+  .banner-disciplinas-content p {
+    font-size: 1rem;
+  }
+
+  .curso-conteudo img {
+    width: 100%;
+    max-width: 300px;
+  }
+
+  .curso-conteudo h2 {
+    font-size: 1.3rem;
+  }
+
+  .curso-info p {
+    font-size: 0.95rem;
+  }
+
+  .curso-botao button {
+    padding: 10px 25px;
+    font-size: 0.9rem;
+    width: 100%;
+    max-width: 200px;
+  }
+}
+
+/** Responsividade mobile pequeno **/
+@media screen and (max-width: 468px) {
+  .carrossel-container {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  .carrossel-controles {
+    width: 100%;
+    justify-content: center;
+    gap: 20px;
+  }
+
+  .carrossel-slide {
+    order: 0;
+    flex-basis: 100%;
+    padding: 15px 10px;
+  }
+
+  .carrossel-controles button {
+    width: 45px;
+    height: 45px;
+    font-size: 18px;
+  }
+
+  .banner-disciplinas {
+    width: 100%;
+    margin: 20% 0% 5%;
+    padding: 20px 15px;
+  }
+
+  .banner-h1 {
+    font-size: 1.6rem;
+    margin-bottom: 10px;
+  }
+
+  .banner-disciplinas-content p {
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+
+  .disciplinas {
+    max-width: 100%;
+    padding: 20px 15px;
+  }
+
+  .disciplinas > h1 {
+    font-size: 1.6rem;
+    margin-bottom: 20px;
+  }
+
+  .curso-conteudo {
+    gap: 15px;
+  }
+
+  .curso-conteudo img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .carrossel-slide {
+    padding: 15px 10px;
+  }
+
+  .carrossel-indicadores {
+    padding: 15px 0;
+  }
+
+  .indicador {
+    width: 10px;
+    height: 10px;
+    margin: 0 4px;
+  }
+
+  .curso-botao button {
+    padding: 10px 20px;
+    font-size: 0.85rem;
+  }
 }
 
 .avaliacoes-section {
