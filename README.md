@@ -76,26 +76,37 @@ O Cursinho Web é uma plataforma educacional que permite aos usuários se cadast
 
 ```
 Cursinho-Web/
-├── app.py                 # Arquivo principal da aplicação Flask
-├── requeriments.txt       # Dependências do projeto
-├── README.md             # Este arquivo
+├── app.py                  # Arquivo principal da aplicação Flask
+├── requeriments.txt        # Dependências do projeto
+├── README.md               # Este arquivo
+├── .env                    # Variáveis de ambiente
+├── .gitignore              # Arquivos/pastas ignorados pelo Git
+├── Dockerfile              # Configuração para container Docker
+├── database.db             # Banco SQLite local
 ├── models/
-│   ├── bd.py            # Configuração do banco de dados
-│   ├── user.py          # Modelo de usuário
-│   └── curso.py         # Modelo de curso
+│   ├── bd.py               # Configuração do banco de dados
+│   ├── user.py             # Modelo de usuário
+│   └── curso.py            # Modelo de curso
+├── routes/
+│   ├── __init__.py         # Registro dos blueprints
+│   ├── auth_routes.py      # Rotas de autenticação
+│   ├── courses_routes.py   # Rotas de cursos e disciplinas
+│   ├── contact_routes.py   # Rotas de contato
+│   ├── send_email.py       # Serviço de envio de email
+│   └── main_routes.py      # Rotas consolidadas (legado)
 ├── static/
 │   ├── src/
-│   │   ├── images/      # Imagens do projeto
-│   │   └── scripts/     # Arquivos JavaScript
-│   └── styles/          # Arquivos CSS
-└── templates/           # Templates HTML
-    ├── base.html        # Template base
-    ├── index.html       # Página inicial
-    ├── login.html       # Página de login
-    ├── cadastro.html    # Página de cadastro
-    ├── curso.html       # Página de detalhes do curso
-    ├── disciplinas.html # Página de disciplinas
-    └── contato.html     # Página de contato
+│   │   ├── images/         # Imagens do projeto
+│   │   └── scripts/        # Arquivos JavaScript
+│   └── styles/             # Arquivos CSS
+└── templates/              # Templates HTML
+   ├── base.html           # Template base
+   ├── index.html          # Página inicial
+   ├── login.html          # Página de login
+   ├── cadastro.html       # Página de cadastro
+   ├── curso.html          # Página de detalhes do curso
+   ├── disciplinas.html    # Página de disciplinas
+   └── contato.html        # Página de contato
 ```
 
 ## 🔧 Configuração
