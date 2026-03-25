@@ -59,3 +59,19 @@ let slideAtual = 0;
     }
 
     mostrarSlide(slideAtual);
+
+    document.addEventListener('DOMContentLoaded', function () {
+        const trilhaAvaliacoes = document.querySelector('.avaliacoes');
+        if (!trilhaAvaliacoes || trilhaAvaliacoes.dataset.loopReady === 'true') {
+            return;
+        }
+
+        const cards = Array.from(trilhaAvaliacoes.children);
+        cards.forEach(function (card) {
+            const clone = card.cloneNode(true);
+            clone.setAttribute('aria-hidden', 'true');
+            trilhaAvaliacoes.appendChild(clone);
+        });
+
+        trilhaAvaliacoes.dataset.loopReady = 'true';
+    });

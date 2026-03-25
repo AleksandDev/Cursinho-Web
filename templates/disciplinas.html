@@ -81,10 +81,9 @@
             <div class="avaliacoes">
                 <div class="avaliacao">
                     <p>"Este curso é como atravessar um sonho onde tudo se conecta — interfaces, códigos e ideias fluem como se sempre tivessem pertencido umas às outras.
-
-Cada página criada é uma porta, cada linha de código, um reflexo da sua imaginação ganhando forma.
-
-No fim, você percebe… não está apenas construindo sites, mas moldando realidades."</p>
+                        Cada página criada é uma porta, cada linha de código, um reflexo da sua imaginação ganhando forma.
+                        No fim, você percebe… não está apenas construindo sites, mas moldando realidades."
+                    </p>
                     <div class="photo_user">
                         <img src="https://i.pinimg.com/736x/bd/b5/b1/bdb5b190fa7dc79ca61f4a818b71b7ba.jpg" alt="photo_user">
                     </div>
@@ -162,5 +161,23 @@ No fim, você percebe… não está apenas construindo sites, mas moldando reali
     const menu = document.querySelector('.menu');
     menu.classList.toggle('show');
 }
+    </script>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const trilhaAvaliacoes = document.querySelector('.avaliacoes');
+        if (!trilhaAvaliacoes || trilhaAvaliacoes.dataset.loopReady === 'true') {
+            return;
+        }
+
+        const cards = Array.from(trilhaAvaliacoes.children);
+        cards.forEach(function (card) {
+            const clone = card.cloneNode(true);
+            clone.setAttribute('aria-hidden', 'true');
+            trilhaAvaliacoes.appendChild(clone);
+        });
+
+        trilhaAvaliacoes.dataset.loopReady = 'true';
+    });
     </script>
 {% endblock %}

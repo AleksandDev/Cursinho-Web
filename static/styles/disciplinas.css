@@ -219,9 +219,10 @@
 }
 
 .curso-conteudo h2 {
-  font-size: 1.6rem;
-  font-weight: 700;
+  font-size: 2rem;
+  margin-bottom: 15px;
   color: #02a502;
+  font-weight: 700;
   text-align: center;
   margin: 10px 0;
 }
@@ -232,7 +233,7 @@
 }
 
 .curso-info p {
-  color: #555;
+  color: #999;
   font-size: 1rem;
   line-height: 1.8;
   max-width: 80%;
@@ -506,12 +507,23 @@
     margin: 0 auto;
     padding: 20px;
     overflow: hidden;
+  position: relative;
+}
+
+.avaliacoes-section h2{
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    color: #02a502;
+    font-weight: 700;
 }
 
 .avaliacoes {
+  --gap: 20px;
     display: flex;
-    gap: 20px;
-    animation: mover 10s linear infinite;
+  gap: var(--gap);
+  width: max-content;
+  animation: mover 24s linear infinite;
+  will-change: transform;
 }
 
 @keyframes mover {
@@ -519,7 +531,7 @@
         transform: translateX(0);
     }
     100% {
-        transform: translateX(-50%);
+    transform: translateX(calc(-50% - (var(--gap) / 2)));
     }
 }
 

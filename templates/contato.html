@@ -30,6 +30,7 @@
             <select name="disciplina" id="to-disciplina">
                 <option value="dev-web">Desenvolvimento Web</option>
                 <option value="poo">Programação Orientada a Objetos</option>
+                <option value="data-science">Data Science</option>
             </select>
             </div>
 
@@ -98,32 +99,9 @@
         } else if (!emailValido) {
             alert("O email não pode ser vazio!");
         } else {
-            alert("Todos os campos foram preenchidos com sucesso!");
+            alert("Formulário enviado com sucesso!");
         }1                                                                                                                                          
 }
     botao.addEventListener("click", validarCampos);
-
-
-    function toggleMethod() {
-        const form = document.querySelector("form");
-        if (form.method === "POST") {
-            form.method = "GET";
-            fetch("/contato", {
-                method: "POST",
-                body: new FormData(form)
-            }).then(response => {
-                if (response.ok) {
-                    alert("Formulário enviado com sucesso!");
-                } else {
-                    alert("Erro ao enviar o formulário.");
-                }
-            }).catch(error => {
-                console.error("Erro:", error);
-                alert("Erro ao enviar o formulário.");
-            });
-        } else {
-            form.method = "POST";
-        }
-    }
     </script>
 {% endblock %}

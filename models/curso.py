@@ -1,10 +1,5 @@
 from sqlalchemy import Column, Integer, String, Text
-
-if __name__ != '__main__':
-    from .bd import Base
-else:
-    from sqlalchemy.ext.declarative import declarative_base
-    Base = declarative_base()
+from .bd import Base
 
 class Curso(Base):
     __tablename__ = 'cursos'

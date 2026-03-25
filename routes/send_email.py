@@ -2,10 +2,14 @@ import smtplib
 from flask import render_template, request
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
+from dotenv import load_dotenv
+import os
+
+load_dotenv()
 
 def enviar_email(destinatario, assunto, curso):
-    remetente = 'youremail@gmail.com'
-    senha = 'inserir_senha_app'
+    remetente = os.getenv('EMAIL')
+    senha = os.getenv('SMTP_APP_PASSWORD')
     nome_destinatario = request.form.get('nome')
     informacoes = {'interesse': request.form.get('disciplina'),
         'linguagens': request.form.get('linguagens'),
@@ -20,6 +24,7 @@ def enviar_email(destinatario, assunto, curso):
         <p>Mensagem: {mensagem}</p>
         <p>Atenciosamente,</p>
         <p>Cursinho Web</p>
+        <img src="https://i.postimg.cc/P50B06TB/Logo-do-Cursinho-Web-em-verde.png" alt="Email Image" style="width:300px;"> 
     </body>
     </html>
     """
@@ -31,5 +36,6 @@ def enviar_email(destinatario, assunto, curso):
     servidor.starttls()
     servidor.login(remetente, senha)
 
+    mensagem = "Contato enviado com sucesso!"
     servidor.sendmail(remetente, destinatario, msg.as_string())
     servidor.quit()
