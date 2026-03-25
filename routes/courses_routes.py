@@ -54,7 +54,6 @@ def _obter_curso(curso_nome):
     curso.habilidades = dados["habilidades"]
     return curso
 
-
 @courses_bp.route("/")
 def home():
     if not session.get("logged_in"):
@@ -67,7 +66,6 @@ def disciplinas():
     if not session.get("logged_in"):
         return redirect(url_for("auth.login"))
     return render_template("disciplinas.html")
-
 
 @courses_bp.route("/curso/<curso_nome>")
 def info_curso(curso_nome):

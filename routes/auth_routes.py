@@ -22,7 +22,6 @@ def login():
             db.close()
     return render_template("login.html")
 
-
 @auth_bp.route("/cadastro", methods=["GET", "POST"])
 def cadastro():
     if request.method == "POST":
@@ -44,7 +43,6 @@ def cadastro():
             db.close()
     return render_template("cadastro.html", cadastro=True)
 
-
 @auth_bp.route("/recuperar-senha", methods=["GET", "POST"])
 def recuperar_senha():
     if request.method == "POST":
@@ -61,7 +59,6 @@ def recuperar_senha():
         finally:
             db.close()
     return render_template("cadastro.html", cadastro=False)
-
 
 @auth_bp.route("/logout")
 def logout():
