@@ -1,5 +1,5 @@
 # imagem
-FROM python:3.8-slim
+FROM python:3.11-slim
 
 # diretório de trabalho
 WORKDIR /app
