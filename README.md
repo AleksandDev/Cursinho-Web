@@ -61,14 +61,12 @@ O Cursinho Web é uma plataforma educacional que permite aos usuários se cadast
 
 ### Primeiro Acesso
 
-- O sistema cria automaticamente um usuário administrador:
-  - **Usuário**: admin
-  - **Senha**: mudar123
+- Faça seu cadatro com suas credenciais
 
 ### Funcionalidades Principais
 
-1. **Login**: Acesse com suas credenciais
-2. **Cadastro**: Crie uma nova conta
+1. **Cadastro**: Crie sua conta
+2. **Login**: Acesse com suas credenciais 
 3. **Cursos**: Navegue pelas disciplinas disponíveis
 4. **Contato**: Entre em contato através do formulário
 
